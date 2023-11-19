@@ -1,0 +1,12 @@
+.doctors
+  .doctors__container
+    h1.doctors__title Лікарі
+    .doctors__inner
+      - @doctors.each do |doctor|
+        .doctors__card.doctor
+          .doctor__img
+            = image_tag doctor_photo(doctor)
+          .doctor__name #{doctor.name} #{doctor.surname}
+          .doctor__position #{doctor.position}
+          .doctor__experience Стаж роботи: #{doctor.experience} роки
+          .default-btn.red Обрати
