@@ -24,7 +24,7 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  def after_sign_up_path_for(resource)
-    patient_profiles_path
+  def after_sign_in_path_for(resource)
+    resource.role == 'doctor' ? doctor_profiles_path : patient_profiles_path
   end
 end

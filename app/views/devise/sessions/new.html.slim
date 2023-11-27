@@ -14,7 +14,8 @@
         .input
           .badge
             = image_tag "pass-icon.svg" 
-          = f.password_field :password, label: false, autocomplete: "current-password", class: 'default-input'
+          = f.password_field :password, label: false, minlength: 8, required: true,
+                  autocomplete: "current-password", class: 'default-input'
           #show-hide.show__password-wrapper.active
             .eye-icon
       - if devise_mapping.rememberable?

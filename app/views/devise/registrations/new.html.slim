@@ -7,13 +7,15 @@
         .input
           .badge
             = image_tag "mail-icon.svg"
-          = f.email_field :email, autofocus: true, autocomplete: "email", label: false, class: 'default-input'
+          = f.email_field :email, autofocus: true, autocomplete: "email", required:true,
+                  label: false, class: 'default-input'
       .group
         label.default-label Пароль*
         .input
           .badge
             = image_tag "pass-icon.svg"
-          = f.password_field :password, label: false, autocomplete: "current-password", class: 'default-input'
+          = f.password_field :password, label: false, minlength: 8, required: true,
+                  autocomplete: "current-password", class: 'default-input'
           #show-hide1.show__password-wrapper.active
             .eye-icon
       .group
@@ -21,9 +23,10 @@
         .input
           .badge
             = image_tag "pass-icon.svg"
-          = f.password_field :password_confirmation, label: false, autocomplete: "current-password", class: 'default-input'
+          = f.password_field :password_confirmation, label: false, minlength: 8, required: true,
+                  autocomplete: "current-password", class: 'default-input'
           #show-hide2.show__password-wrapper.active
             .eye-icon
       .actions
-        = f.submit "Зареєструватися", class: 'default-btn red'
+        = f.submit "Зареєструватися", class: 'default-btn red', style: 'margin-top: 20px'
         = link_to "У вас вже є обліковий запис?", new_session_path(resource_name), class: 'text'

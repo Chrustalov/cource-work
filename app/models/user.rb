@@ -8,4 +8,8 @@ class User < ApplicationRecord
 
   has_one :patient
   has_one :doctor
+
+  validates :email, presence: true, uniqueness: true
+  validates :encrypted_password, presence: true
+  validates :password, length: { minimum: 8 }, if: -> { password.present? }
 end

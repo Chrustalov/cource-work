@@ -12,6 +12,8 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "jbuilder"
+gem "pundit"
+gem 'rails-i18n'
 gem "slim"
 gem 'devise'
 gem 'carrierwave', '~> 3.0'
@@ -27,10 +29,10 @@ end
 
 group :development do
   gem "web-console"
+  gem 'pry-rails'
 end
 
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
-
 end

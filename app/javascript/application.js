@@ -3,5 +3,6 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 
 // Entry point for the build script in your package.json
-Turbo.session.drive = false;
+Turbo.session.drive = true;
 import "./controllers";
+require("./links");
