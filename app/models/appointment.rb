@@ -10,6 +10,7 @@ class Appointment < ApplicationRecord
   validates :working_hour_id, presence: true
   validates :doctor_id, presence: true
   validates :patient_id, presence: true
+  # validates :validate_doctor_schedule
 
   scope :visited, -> { where('time <= ?', Time.now) }
   scope :unvisited, -> { where('time >= ?', Time.now) }

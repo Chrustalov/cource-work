@@ -12,10 +12,18 @@ class Doctor::AppointmentsController < Doctor::ApplicationController
 
   def confirm_appointment
     @appointment = Appointment.find(params[:id])
-    @appointment.update(status: 'confirmed')
+    if @appointment.working_hour.nil?
+      @appointment.destroy
 
-    respond_to do |format|
-      format.html { redirect_to doctor_appointments_path, notice: 'Ви успішно підтвердили запит!' }
+      respond_to do |format|
+        format.html { redirect_to doctor_appointments_path, notice: 'Ви видалили таку робочу годину, щось пішло не так!' }
+      end
+      else
+      @appointment.update(status: 'confirmed')
+
+      respond_to do |format|
+        format.html { redirect_to doctor_appointments_path, notice: 'Ви успішно підтвердили запит!' }
+      end
     end
   end
 end

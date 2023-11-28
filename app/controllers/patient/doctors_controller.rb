@@ -52,7 +52,6 @@ class Patient::DoctorsController < Patient::ApplicationController
   end
 
   def edit_rating
-    binding.pry
     @rating = Rating.find(params[:id])
 
     if @rating.update(rating_params)

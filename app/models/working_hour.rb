@@ -3,7 +3,15 @@ class WorkingHour < ApplicationRecord
   has_one :appointment
   after_create :configuring_hour
 
-  enum status: { free: 0, busy: 1, visited: 2 }
+  DAYS_HASH = {
+    'Понеділок' => 1,
+    'Вівторок' => 2,
+    'Середа' => 3,
+    'Четвер' => 4,
+    "П'ятниця" => 5,
+    'Субота' => 6,
+    'Неділя' => 7
+  }
 
   validates_uniqueness_of :hour, scope: :working_day_id
 

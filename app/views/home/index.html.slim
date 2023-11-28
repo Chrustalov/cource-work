@@ -6,7 +6,10 @@
                           якісну медичну допомогу. Зареєструйтеся або увійдіть, щоб отримати доступ до послуг.
       .group__buttons
         - if current_user
-          = link_to 'Перейти до кабінету', patient_profiles_path, class: 'default-btn red'
+          - if current_user.role == 'patient'
+            = link_to 'Перейти до кабінету', patient_profiles_path, class: 'default-btn red'
+          - else
+            = link_to 'Перейти до кабінету', doctor_profiles_path, class: 'default-btn red'
         - else
           = link_to 'Увійти', new_user_session_path, class: 'default-btn blue'
           = link_to 'Зареєструватись', new_user_registration_path, class: 'default-btn green'

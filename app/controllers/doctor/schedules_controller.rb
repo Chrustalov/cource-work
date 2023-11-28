@@ -4,7 +4,6 @@ class Doctor::SchedulesController < Doctor::ApplicationController
     @schedule = Schedule.find_by(doctor_id: doctor.id)
     @working_days = WorkingDay.where(schedule_id: @schedule.id).order(:priority)
     @working_hour = WorkingHour.new
-    binding.pry
   end
 
   def change_status_day

@@ -7,7 +7,7 @@ class Patient < ApplicationRecord
 
   enum gender: { male: 0, female: 1}, _suffix: :gender
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 2 }
   validates :surname, presence: true
   validates :birthday, presence: true
   validates :residence, presence: true

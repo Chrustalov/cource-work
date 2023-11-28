@@ -34,7 +34,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         respond_with resource
       end
     else
-      redirect_to new_user_registration_path, alert: 'Could not sign up with this parameters.'
+      redirect_to new_user_registration_path,
+                  alert: 'Перевірте ваші дані або користувач з такою електроною адресою вже існує!'
     end
   end
 

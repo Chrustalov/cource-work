@@ -9,7 +9,7 @@ class PatientRegistrationController < ApplicationController
     if @patient.save
       redirect_to patient_profiles_path, notice: 'Ви успішно зареєструвались!'
     else
-      render 'new'
+      redirect_to new_patient_registration_path, alert: 'Не правильно введено дані!'
     end
   end
 
