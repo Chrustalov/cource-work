@@ -16,7 +16,7 @@
     #best_doctors.best_doctors
       - if @most_reviewed_doctor.present?
         .doctors__card.doctor
-          .badge Найпопулярний лікар <br> <span>(за кількістю відгуків)<span>
+          .badge Найпопулярніший лікар <br> <span>(за кількістю відгуків)<span>
           .doctor__img
             = image_tag doctor_photo(@most_reviewed_doctor)
           .doctor__name #{@most_reviewed_doctor.name} #{@most_reviewed_doctor.surname}

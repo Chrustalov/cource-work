@@ -22,7 +22,6 @@ class Patient::ProfilesController < Patient::ApplicationController
         format.turbo_stream do
           render turbo_stream: [
             turbo_stream.replace(@patient, partial: 'patient/profiles/form'),
-            # turbo_stream.append('flash_message', partial: 'shared/flash')
           ]
         end
       end
